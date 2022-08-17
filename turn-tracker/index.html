@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Linking the CSS File -->
+    <link rel="stylesheet" href="./index.css">
+
+</head>
+<body>
+    <!-- Create an input field that takes in a players name -->
+    <label>Player Name: </label>
+    <input id="player-input"/>
+
+    <!-- Create a place where we can inject the player names that 
+        will be typed into the player-input field and will be 
+        stored in our javascript array -->
+    <h2>Player Names!!!</h2>
+    <div id="player-names"> 
+    </div>
+
+    <!-- Created a button that activates the 'addPlayer' function in our
+         connecting javascript file -->
+    <button id="submit-button" onclick="addPlayer()">Add Player</button>
+</body>
+
+<!-- Connecting the javascript file at the end  -->
+<script src="./index.js"></script>
+</html>
