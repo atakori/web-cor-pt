@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // We can define a function that will retrieving the pokemon info from the pokeAPI
+        function getPokemonInfo() {
+            console.log("Getting pokemon info NOW!!!");
+
+            // We are using the fetch() javascript method which calls a promise method and 
+            // Will return the pokemon data for the pokemon named "ditto"
+            fetch('https://pokeapi.co/api/v2/pokemon/ditto')
+            .then((response) => response.json()) // the .json() method turns the response into a more readable format
+            .then((data) => {
+                // We can traverse through the response data in order to get a picture URL
+                console.log(data)
+                console.log(data.sprites);
+                console.log(data.sprites.front_shiny);
+
+                // Saving the picture URL to a variable called 'shinyPokemonURL'
+                const shinyPokemonURL = data.sprites.front_shiny;
+
+                // We want to show our new picture that we fetched from the pokeAPI
+                // Let's put it in in order div container with a id of "pokemon-info"
+                const pokemonInfoContainer = document.getElementById("pokemon-info");
+                
+                // Setting the div innerHTML to equal an image element with the URL pointing to our
+                // Pokemon Picture!!!
+                pokemonInfoContainer.innerHTML = `<img src=${shinyPokemonURL} />`
+            });
+        }
+
+    </script>
+</head>
+<body>
+    <h1>This is my Pokemon Page</h1>
+    <div id="pokemon-info">
+        <p>Loading....</p>
+    </div>
+    <!-- We use the on click method to call our function that is defined in our <script> tag -->
+    <Button onClick="getPokemonInfo()">Show my Pokemon Info!!!!</Button>
+</body>
+</html>
